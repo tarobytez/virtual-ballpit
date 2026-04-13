@@ -37,12 +37,13 @@
         </div>
 
         <div class="controls">
-            <label for="upload-img">Choose a picture:</label>
+            <label for="uploadImg">Choose a picture:</label>
 
-            <input type="file" id="upload-img" name="upload-img" accept="image/png, image/jpeg" onchange="loadFile(event)" />
+            <input type="file" id="uploadImg" name="uploadImg" accept="image/png, image/jpeg"
+                onchange="loadFile(event)" />
 
             <div class="slidecontainer">
-                <input type="range" min="0" value="100" max="200"  class="slider" id="imgScale" onchange="scaleImg()">
+                <input type="range" min="0" value="100" max="200" class="slider" id="imgScale" onchange="scaleImg()">
             </div>
 
             <div class="moveButtons">
@@ -52,7 +53,9 @@
                 <button id="down" onclick="down()">↓</button>
             </div>
 
-            <button id="reset" style="margin-top:20px;">Reset Position</button>
+            <button id="reset" style="margin-top:20px;" onclick="reset()">Reset Position</button>
+
+            <button id="openDownload" onclick="openModal()" disabled>Download</button>
 
             <h1>Sample Instructions</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui quidem? Fugiat officiis veritatis
@@ -68,6 +71,21 @@
                 eaque officia ratione, enim aliquid earum culpa fugiat. Sequi commodi, consectetur veniam quos ratione
                 beatae eum.</p>
 
+        </div>
+
+        <div id="modal">
+            <div class="modalContent">
+                
+            <img id="downloadImg" src="" alt="">
+            
+
+            <div class="modalButtons">
+                <button onclick="closeModal()">Go Back</button>
+                <a href="" id="downloadLink" download>Download</a>
+            </div>
+
+            </div>
+            
         </div>
 
         <script src="script.js"></script>
