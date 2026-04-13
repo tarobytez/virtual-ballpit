@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Ballpit - Dashcon 2!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- <div class="description">
+            <h1>Hello</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui quidem? Fugiat officiis veritatis
+                iste totam quo enim reprehenderit culpa nulla magnam id nihil sapiente in, debitis, voluptates eaque
+                neque.</p>
+            <p>Temporibus itaque modi magnam placeat ratione officiis labore autem totam voluptatem beatae inventore
+                ullam voluptates ea quam, accusamus est molestias, excepturi ipsum omnis hic animi quaerat quia sint
+                numquam. Exercitationem?</p>
+            <p>Modi quam cumque quibusdam incidunt, hic explicabo blanditiis voluptatem dolor aliquid eaque. A
+                reiciendis corporis nemo fugiat assumenda! Assumenda dicta velit illo voluptate natus earum molestias
+                perspiciatis, voluptatum nulla aperiam?</p>
+            <p>Corporis aliquam reprehenderit aut sequi nulla, dicta sunt minus nesciunt architecto odit suscipit optio,
+                eaque officia ratione, enim aliquid earum culpa fugiat. Sequi commodi, consectetur veniam quos ratione
+                beatae eum.</p>
+            <p>Quos libero recusandae assumenda? Aut numquam, earum temporibus officia nemo harum sit et hic in delectus
+                ipsam sint repudiandae? Repudiandae nulla, a reprehenderit dicta eius architecto similique officiis est
+                iure.</p>
+            
+        </div> -->
+
+        <div class="display">
+            <div id="canvas">
+                <img id="user-pic">
+            </div>
+        </div>
+
+        <div class="controls">
+            <label for="upload-img">Choose a picture:</label>
+
+            <input type="file" id="upload-img" name="upload-img" accept="image/png, image/jpeg" onchange="loadFile(event)" />
+
+            <div class="slidecontainer">
+                <input type="range" min="0" value="100" max="200"  class="slider" id="imgScale" onchange="updateImgSize()">
+            </div>
+
+            <div class="moveButtons">
+                <button id="up" onclick="up()">↑</button>
+                <button id="left" onclick="left()">←</button>
+                <button id="right" onclick="right()">→</button>
+                <button id="down" onclick="down()">↓</button>
+            </div>
+
+            <h1>Sample Instructions</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui quidem? Fugiat officiis veritatis
+                iste totam quo enim reprehenderit culpa nulla magnam id nihil sapiente in, debitis, voluptates eaque
+                neque.</p>
+            <p>Temporibus itaque modi magnam placeat ratione officiis labore autem totam voluptatem beatae inventore
+                ullam voluptates ea quam, accusamus est molestias, excepturi ipsum omnis hic animi quaerat quia sint
+                numquam. Exercitationem?</p>
+            <p>Modi quam cumque quibusdam incidunt, hic explicabo blanditiis voluptatem dolor aliquid eaque. A
+                reiciendis corporis nemo fugiat assumenda! Assumenda dicta velit illo voluptate natus earum molestias
+                perspiciatis, voluptatum nulla aperiam?</p>
+            <p>Corporis aliquam reprehenderit aut sequi nulla, dicta sunt minus nesciunt architecto odit suscipit optio,
+                eaque officia ratione, enim aliquid earum culpa fugiat. Sequi commodi, consectetur veniam quos ratione
+                beatae eum.</p>
+
+        </div>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>

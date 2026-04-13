@@ -1,0 +1,52 @@
+body {
+    background-color: #343434;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 80px auto;
+}
+
+.description, .controls {
+    background-color: white;
+    padding: 10px;
+}
+
+#canvas {
+    width:800px;
+    height: 500px;
+    border: 10px solid rgb(155, 155, 155);
+    margin: 40px auto;
+    background-color: white;
+
+}
+
+#user-pic { 
+    height: calc(75%);
+}
+
+div.moveButtons {
+    display: grid;
+    max-width: 100px;
+    grid-template-areas: 
+        '. up .'
+        'left . right'
+        '. down .';
+}
+
+.moveButtons > #up {
+    grid-area: up;
+}
+
+.moveButtons > #left {
+    grid-area: left;
+}
+
+.moveButtons > #right {
+    grid-area: right;
+}
+
+.moveButtons > #down {
+    grid-area: down;
+}
+
