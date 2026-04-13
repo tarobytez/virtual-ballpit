@@ -30,7 +30,7 @@
             
         </div> -->
 
-        <div class="display">
+        <div id="display">
             <div id="canvas">
                 <img id="user-pic">
             </div>
@@ -42,7 +42,7 @@
             <input type="file" id="upload-img" name="upload-img" accept="image/png, image/jpeg" onchange="loadFile(event)" />
 
             <div class="slidecontainer">
-                <input type="range" min="0" value="100" max="200"  class="slider" id="imgScale" onchange="updateImgSize()">
+                <input type="range" min="0" value="100" max="200"  class="slider" id="imgScale" onchange="scaleImg()">
             </div>
 
             <div class="moveButtons">
@@ -51,6 +51,8 @@
                 <button id="right" onclick="right()">→</button>
                 <button id="down" onclick="down()">↓</button>
             </div>
+
+            <button id="reset" style="margin-top:20px;">Reset Position</button>
 
             <h1>Sample Instructions</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui quidem? Fugiat officiis veritatis
