@@ -1,0 +1,135 @@
+:root {
+
+}
+
+/* a, button {
+    all: unset;
+} */
+
+
+body {
+    background-color: #343434;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: 80px auto;
+}
+
+.description, .controls {
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#display {
+    box-sizing: border-box;
+    width:100%;
+    
+    
+    margin: auto;
+
+    border: 10px solid #ccc;
+
+}
+
+#canvas {
+    width:100%;
+    height: 100%;
+    
+    background-color: white;
+    clip-path: content-box polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    display:flex;
+    
+}
+
+#user-pic { 
+    height: calc(75%);
+
+    align-self: flex-end;
+    margin: 0 auto;
+}
+
+div.moveButtons {
+    display: grid;
+    max-width: 100px;
+    grid-template-areas: 
+        '. up .'
+        'left . right'
+        '. down .';
+}
+
+
+
+.moveButtons > #up {
+    grid-area: up;
+}
+
+.moveButtons > #left {
+    grid-area: left;
+}
+
+.moveButtons > #right {
+    grid-area: right;
+}
+
+.moveButtons > #down {
+    grid-area: down;
+}
+
+#modal {
+    /* Sets the modal position as fixed, starting in the top left corner. */
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    /* Sizes the modal over the full screen */
+    width: 100%;
+    height: 100%;
+    
+    /* Sets the modal as a grid, and centers the content on both axis */
+    display: grid;
+    
+    /* Sets up the grid by rows, with the image taking 90%, and the caption only 10% */
+    grid-template-rows: 90% 10%;
+
+    /* A background colour of black at 75% opacity */
+    background-color: rgba(0, 0, 0, 0.75);
+
+    /* Not visible by default */
+    opacity: 0;
+    visibility: hidden;
+
+    /* A transition between the main screen and the modal */
+    transition: 0.5s;
+}
+
+
+#modal > div.modalContent {
+    margin: auto;
+}
+
+
+/* This is toggled on and off to show the modal */
+#modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Aligns the content of the HD image, and sets it to have a maximum height of 95% of its container (to leave a little cushion for spacing) */
+#modal img {
+
+    width: 75%;
+    height: auto;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (min-width: 820px) {
+    #display {
+        width:800px;
+    }
+}
+
