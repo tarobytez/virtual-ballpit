@@ -6,6 +6,16 @@ const $modal = document.getElementById("modal");
 const $display = document.getElementById("display");
 const $canvas = document.getElementById("canvas");
 const $previewPic = document.getElementById("previewPic")
+const $color1 = document.getElementById("color-1");
+const $color2 = document.getElementById("color-2");
+const $color3 = document.getElementById("color-3");
+const $color4 = document.getElementById("color-4");
+
+const $allColor1 = document.querySelectorAll(".color-1")
+const $allColor2 = document.querySelectorAll(".color-2")
+const $allColor3 = document.querySelectorAll(".color-3")
+const $allColor4 = document.querySelectorAll(".color-4")
+
 
 let imgX = 0;
 let imgY = 0;
@@ -43,11 +53,9 @@ const scaleImg = function() {
 }
 
 
-
-
 // ON LOAD ACTIONS:
 changeCanvasHeight();
-
+setBallColor();
 
 
 window.addEventListener("resize", changeCanvasHeight);
@@ -64,7 +72,30 @@ $modalCapBtn.addEventListener("click", async () => {
     openModal();
 })
 
+// const a = new CSSStyleSheet();
+// a.insertRule(`h1 { color:pink; }`);
+// document.adoptedStyleSheets = [a];
 
+$color1.addEventListener("change", setBallColor); 
+// $color2.addEventListener("change", setBallColor(2, $color2.value)); 
+// $color3.addEventListener("change", setBallColor(3, $color3.value)); 
+// $color4.addEventListener("change", setBallColor(4, $color4.value));
+
+
+
+function setBallColor() {
+    // a.replace(`.color-1 { fill: ${$color1.value};} .color-2 { fill: ${$color2.value};} .color-3 { fill: ${$color3.value};} .color-4 { fill: ${$color4.value};}`)
+    // document.adoptedStyleSheets = [a];
+    $allColor1.forEach(element => {
+        element.style.fill = $color1.value;
+    });
+
+}
+
+
+function addClass(str) {
+
+}
 
 function reset() {
     $userImg.style.transform = "";
@@ -80,9 +111,6 @@ function changeCanvasHeight() {
     $display.style.height = ($display.offsetWidth * 5/8) + "px";  
 }
 
-function captureImg() {
-
-}
 
 
 // MODAL 
