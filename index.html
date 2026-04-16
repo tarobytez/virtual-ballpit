@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Ballpit - Dashcon 2!</title>
-    <link rel="stylesheet" href="style.css">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body>
@@ -55,7 +57,10 @@
 
             <button id="reset" style="margin-top:20px;" onclick="reset()">Reset Position</button>
 
-            <button id="openDownload" onclick="openModal()" disabled>Download</button>
+            <button id="openDownload" disabled>Complete Postcard</button>
+
+            <br>
+            <img width="400px" height="250px" style="margin-top:20px;" id="previewPic">
 
             <h1>Sample Instructions</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui quidem? Fugiat officiis veritatis
@@ -88,7 +93,7 @@
             
         </div>
 
-        <script src="script.js"></script>
+        <script src="js/script.js"></script>
     </div>
 </body>
 
