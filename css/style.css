@@ -1,6 +1,4 @@
-:root {
-
-}
+:root {}
 
 /* a, button {
     all: unset;
@@ -16,7 +14,8 @@ body {
     margin: 80px auto;
 }
 
-.description, .controls {
+.description,
+.controls {
     background-color: white;
     box-sizing: border-box;
     padding: 10px;
@@ -24,9 +23,9 @@ body {
 
 #display {
     box-sizing: border-box;
-    width:100%;
-    
-    
+    width: 100%;
+
+
     margin: auto;
 
     border: 10px solid #ccc;
@@ -34,26 +33,28 @@ body {
 }
 
 #canvas {
-    width:100%;
+    width: 100%;
     height: 100%;
-    
+
     background-color: white;
     clip-path: content-box polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
-    display:flex;
-    
+    display: flex;
+
 }
 
-#user-pic { 
+#user-pic {
     height: calc(75%);
-
     align-self: flex-end;
-    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+
 }
 
 div.moveButtons {
     display: grid;
     max-width: 100px;
-    grid-template-areas: 
+    grid-template-areas:
         '. up .'
         'left . right'
         '. down .';
@@ -61,19 +62,19 @@ div.moveButtons {
 
 
 
-.moveButtons > #up {
+.moveButtons>#up {
     grid-area: up;
 }
 
-.moveButtons > #left {
+.moveButtons>#left {
     grid-area: left;
 }
 
-.moveButtons > #right {
+.moveButtons>#right {
     grid-area: right;
 }
 
-.moveButtons > #down {
+.moveButtons>#down {
     grid-area: down;
 }
 
@@ -86,10 +87,10 @@ div.moveButtons {
     /* Sizes the modal over the full screen */
     width: 100%;
     height: 100%;
-    
+
     /* Sets the modal as a grid, and centers the content on both axis */
     display: grid;
-    
+
     /* Sets up the grid by rows, with the image taking 90%, and the caption only 10% */
     grid-template-rows: 90% 10%;
 
@@ -105,7 +106,7 @@ div.moveButtons {
 }
 
 
-#modal > div.modalContent {
+#modal>div.modalContent {
     margin: auto;
 }
 
@@ -129,7 +130,6 @@ body.modal-open {
 
 @media (min-width: 820px) {
     #display {
-        width:800px;
+        width: 800px;
     }
 }
-
