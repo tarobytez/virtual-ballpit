@@ -24,12 +24,8 @@ body {
 #display {
     box-sizing: border-box;
     width: 100%;
-
-
     margin: auto;
-
     border: 10px solid #ccc;
-
 }
 
 #canvas {
@@ -48,9 +44,9 @@ body {
     left: 0;
     right: 0;
     margin-inline: auto;
-
 }
 
+/* Move Buttons */
 div.moveButtons {
     display: grid;
     max-width: 100px;
@@ -59,8 +55,6 @@ div.moveButtons {
         'left . right'
         '. down .';
 }
-
-
 
 .moveButtons>#up {
     grid-area: up;
@@ -78,6 +72,31 @@ div.moveButtons {
     grid-area: down;
 }
 
+.backgroundButtons label {
+    display: block;
+    width:100px;
+    height: 100px
+}
+
+.card {
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: center;
+    border-radius: .5rem;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    cursor:pointer;
+    position:relative;
+    border: 2px solid black;
+    transition: 200ms ease-in-out transform;
+}
+
+
+
+/* MODAL */
 #modal {
     /* Sets the modal position as fixed, starting in the top left corner. */
     position: fixed;

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -12,25 +13,7 @@
 
 <body>
     <div class="wrapper">
-        <!-- <div class="description">
-            <h1>Hello</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, qui quidem? Fugiat officiis veritatis
-                iste totam quo enim reprehenderit culpa nulla magnam id nihil sapiente in, debitis, voluptates eaque
-                neque.</p>
-            <p>Temporibus itaque modi magnam placeat ratione officiis labore autem totam voluptatem beatae inventore
-                ullam voluptates ea quam, accusamus est molestias, excepturi ipsum omnis hic animi quaerat quia sint
-                numquam. Exercitationem?</p>
-            <p>Modi quam cumque quibusdam incidunt, hic explicabo blanditiis voluptatem dolor aliquid eaque. A
-                reiciendis corporis nemo fugiat assumenda! Assumenda dicta velit illo voluptate natus earum molestias
-                perspiciatis, voluptatum nulla aperiam?</p>
-            <p>Corporis aliquam reprehenderit aut sequi nulla, dicta sunt minus nesciunt architecto odit suscipit optio,
-                eaque officia ratione, enim aliquid earum culpa fugiat. Sequi commodi, consectetur veniam quos ratione
-                beatae eum.</p>
-            <p>Quos libero recusandae assumenda? Aut numquam, earum temporibus officia nemo harum sit et hic in delectus
-                ipsam sint repudiandae? Repudiandae nulla, a reprehenderit dicta eius architecto similique officiis est
-                iure.</p>
-            
-        </div> -->
+        
 
         <div id="display">
             <div id="canvas" style="position:relative;">
@@ -52,9 +35,10 @@
             <input type="file" id="uploadImg" name="uploadImg" accept="image/png, image/jpeg"
                 onchange="loadFile(event)" />
 
-            <div class="slidecontainer">
+            <div class="slideContainer">
                 <input type="range" min="0" value="100" max="200" class="slider" id="imgScale" onchange="scaleImg()">
             </div>
+
 
             <div class="moveButtons">
                 <button id="up" onclick="up()">↑</button>
@@ -65,7 +49,48 @@
 
             <br>
 
-            <div class="colorButtons">
+
+
+            <div class="backgroundButtons">
+                <div class="backgroundType">
+                    <input type="radio" name="card" id="imageBackground">
+                    <input type="radio" name="card" id="gradientBackground">
+                    <input type="radio" name="card" id="colorBackground">
+                    <input type="radio" name="card" id="noBackground">
+
+                    <label for="imageBackground">
+                        <div class="card">
+                            <span class="checkBtn"></span>
+                            <h4 class="cardName">Image Background</h4>
+                        </div>
+                    </label>
+                    <label for="gradientBackground">
+                        <div class="card">
+                            <span class="checkBtn"></span>
+                            <h4 class="cardName">Gradient Background</h4>
+                        </div>
+                    </label>
+                    <label for="colorBackground">
+                        <div class="card">
+                            <span class="checkBtn"></span>
+                            <h4 class="cardName">Color Background</h4>
+                        </div>
+                    </label>
+                    <label for="noBackground"><div class="card">
+                            <span class="checkBtn"></span>
+                            <h4 class="cardName">No Background</h4>
+                        </div>
+                    </label>
+
+                </div>
+
+                <div class="backgroundTypeImg"></div>
+                <div class="backgroundTypeGradient"></div>
+                <div class="backgroundTypeColor"></div>
+            </div>
+
+
+            <div class="colorButtons" style="margin-top:20px;">
                 <input type="color" id="color-1" name="color-1" value="#FF00F2"/>
                 <input type="color" id="color-2" name="color-2" value="#FBFF00"/>
                 <input type="color" id="color-3" name="color-3" value="#0015FF"/>
@@ -73,6 +98,9 @@
             </div>
 
             <br>
+
+            <i class="bi bi-check-circle-fill"></i>
+            <i class="bi bi-circle"></i>
 
             <button id="reset" style="margin-top:20px;" onclick="reset()">Reset Position</button>
 
