@@ -1,26 +1,54 @@
 const $userImg = document.getElementById("user-pic");
 const $scaleRange = document.getElementById("imgScale");
 const $resetBtn = document.getElementById("reset");
-const $modalCapBtn = document.getElementById("openDownload");
-const $modal = document.getElementById("modal");
 const $display = document.getElementById("display");
 const $canvas = document.getElementById("canvas");
-const $previewPic = document.getElementById("previewPic")
-const $color1 = document.getElementById("color-1");
-const $color2 = document.getElementById("color-2");
-const $color3 = document.getElementById("color-3");
-const $color4 = document.getElementById("color-4");
 
+
+// CUSTOM BALL COLOUR VARIABLES
+
+// Custom Ball Colour Inputs
+const $color1Input = document.getElementById("color-1");
+const $color2Input = document.getElementById("color-2");
+const $color3Input = document.getElementById("color-3");
+const $color4Input = document.getElementById("color-4");
+
+// Selecting All Of Each Colour, By Class
 const $allColor1 = document.querySelectorAll(".color-1")
 const $allColor2 = document.querySelectorAll(".color-2")
 const $allColor3 = document.querySelectorAll(".color-3")
 const $allColor4 = document.querySelectorAll(".color-4")
 
 
+
+// BACKGROUND VARIABLES
+
+// Background Type Inputs
+const $backgroundTypeSection = document.querySelector(".backgroundType");
+const $backgroundTypeImage = document.getElementById("imageBackground");
+const $backgroundTypeGradient = document.getElementById("gradientBackground");
+const $backgroundTypeColor = document.getElementById("colorBackground");
+
+const $bgImgSection = document.querySelector(".backgroundTypeImg");
+const $bgGradSection = document.querySelector(".backgroundTypeGradient");
+const $bgColSection = document.querySelector(".backgroundTypeColor");
+
+
+
+// MODAL VARIABLES
+const $modalCapBtn = document.getElementById("openDownload");
+const $modal = document.getElementById("modal");
+
+
+// 
+let imgURL;
+
+// Transform of $userImg, X and Y
 let imgX = 0;
 let imgY = 0;
 
-let imgURL;
+
+
 
 const loadFile = function(event) {
     $userImg.src=URL.createObjectURL(event.target.files[0]);
@@ -72,35 +100,56 @@ $modalCapBtn.addEventListener("click", async () => {
     openModal();
 })
 
-$color1.addEventListener("change", setBallColor); 
-$color2.addEventListener("change", setBallColor); 
-$color3.addEventListener("change", setBallColor); 
-$color4.addEventListener("change", setBallColor); 
+$backgroundTypeSection.addEventListener("change", (event) => {
+    if(event.target.id == "imageBackground") {
+        closeTypeMenus();
+        $bgImgSection.classList.add("show");
+        // Set initial image background? Or wait until option picked?
+    } else if(event.target.id == "gradientBackground") {
+        closeTypeMenus();
+        $bgGradSection.classList.add("show");
+    } else if(event.target.id == "colorBackground") {
+        closeTypeMenus();
+        $bgColSection.classList.add("show");
+    }
+})
 
+function closeTypeMenus() {
+    $bgImgSection.classList.remove("show");
+    $bgGradSection.classList.remove("show");
+    $bgColSection.classList.remove("show");
+}
+
+$color1Input.addEventListener("change", setBallColor); 
+$color2Input.addEventListener("change", setBallColor); 
+$color3Input.addEventListener("change", setBallColor); 
+$color4Input.addEventListener("change", setBallColor); 
+
+
+function setBackground(background) {
+    $canvas.style.background = background;
+}
 
 function setBallColor() {
+    // For each element of the color, change the fill of the element to the new value. 
     $allColor1.forEach(element => {
-        element.style.fill = $color1.value;
+        element.style.fill = $color1Input.value;
     });
 
     $allColor2.forEach(element => {
-        element.style.fill = $color2.value;
+        element.style.fill = $color2Input.value;
     });
 
     $allColor3.forEach(element => {
-        element.style.fill = $color3.value;
+        element.style.fill = $color3Input.value;
     });
 
     $allColor4.forEach(element => {
-        element.style.fill = $color4.value;
+        element.style.fill = $color4Input.value;
     });
 }
 
-
-function addClass(str) {
-
-}
-
+// Resets the transforms of the images by removing the transform and scale styles, and resetting the slider and X and Y values for translation.
 function reset() {
     $userImg.style.transform = "";
     $userImg.style.scale = "";
@@ -110,23 +159,23 @@ function reset() {
 }
 
 
+// Adjusts the canvas height for setup and resize, to keep the 5/8 ratio of the display.
 function changeCanvasHeight() {
-    // ENSURE IMAGES STAY ANCHORED LATER!
     $display.style.height = ($display.offsetWidth * 5/8) + "px";  
 }
 
-
-
-// MODAL 
+// Modal open and close
 function openModal() {
-    // process img with html2canvas. For now, we will just use the src of the user image
+    // Adds modal to view, and prevent body from scrolling
     $modal.classList.add('show');
     document.body.classList.toggle("modal-open");
 }
 
 function closeModal() {
+    // Removes the modal from view, and allow body scrolling again
     $modal.classList.remove('show');
     document.body.classList.toggle("modal-open");
+    // Revokes object URL to prevent memory leakage
     URL.revokeObjectURL(imgURL);
 }
 
